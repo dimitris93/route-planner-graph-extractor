@@ -4,7 +4,7 @@ The purpose of this Python code is to parse the `.osm` data, which are downloada
 
 ## Input
 
-An .osm file, for example, `greece-latest.osm`, or `europe-latest.osm`. And, a distance in meters, for example `250` which will be the highest distance that we want to have to any edge in our graph. If an edge is more than `250` when we split it and add more nodes, so that it remains short. This is optional. The reasoning behind why we do this is exlained [here](https://github.com/outerpixels/routing-engine-backend/blob/master/README.md) in detail.
+An .osm file, for example, `greece-latest.osm`, or `europe-latest.osm`. And, a distance in meters, for example `250` which will be the highest distance that we want to have to any edge in our graph. If an edge is more than `250` when we split it and add more nodes, so that it remains short. This is optional. The reasoning behind why we do this is explained [here](https://github.com/outerpixels/routing-engine-backend/blob/master/README.md) in detail.
 
 ## Output
 
@@ -42,7 +42,7 @@ road_name**
 
 ## The .osm data parsing process 
 
-The parsing process can be tricky, and there is more than one correct ways to do it, meaning that someone could choose to include `parkings` or `private roads` in his graph and someone might opt to not include them. Another example is that our graph's edge weights could slightly differ from someone else's edge weights.
+The parsing process can be tricky, and there is more than one correct ways to do it, meaning that someone could choose to include `parking` or `private roads` in his graph and someone might opt to not include them. Another example is that our graph's edge weights could slightly differ from someone else's edge weights.
 
 The process I followed when implementing this graph-extractor is very similar to the script of Project-Osrm as seen [here](https://github.com/Project-OSRM/osrm-backend/blob/master/profiles/car.lua). 
 
@@ -51,6 +51,6 @@ When parsing the `.osm` data, we also want to associate the `osm_node_ids` to ou
 ## Important things we need to consider when parsing the .osm data
 
  - Road's type. This is indicated in the `highway` tag, which takes values such as `motorway, residential, living_street, etc.`
- - The road's texture. For example `asphalt, dirt, etc.`
+ - The road's texture. For example, `asphalt, dirt, etc.`
  - If the road is accessible from the general public `private parking lots, roads tha are accessible only in certain hours, etc.`
  - Max-speed road signs
