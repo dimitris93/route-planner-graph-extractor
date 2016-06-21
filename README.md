@@ -40,3 +40,17 @@ road_name**
 294 295 DRIVING INACCESSIBLE 1.92864344384 1.92864344384 None True False Ρήγα Φεραίου<br>
 295 296 DRIVING INACCESSIBLE 1.56874919292 1.56874919292 None True False Ρήγα Φεραίου<br>
 
+## The .osm data parsing process 
+
+The parsing process can be tricky, and there is more than one correct ways to do it, meaning that someone could choose to include `parkings` or `private roads` in his graph and someone might opt to not include them. Another example is that our graph's edge weights could slightly differ from someone else's edge weights.
+
+The process I followed when implementing this graph-extractor is very similar to the script of Project-Osrm as seen [here](https://github.com/Project-OSRM/osrm-backend/blob/master/profiles/car.lua). 
+
+When parsing the `.osm` data, we also want to associate the `osm_node_ids` to our own, smaller ids, named `my_ids`, which take values **from 0 to N*. The reason behind that is that we need those ids as indexes in our c++ application, which solves the shortest path problem. To do that, I am using a temporary **Sqlite** database (which is built-in python) to help me with the data parsing. Otherwise, an in-memory approach would require way too much memory. The **Sqlite** database file which contains the `osm_node_id, my_id, latitude, longitude` takes up 80GBs of space for the Europe car graph.
+
+## Important things we need to consider when parsing the .osm data
+
+ - Road's type. This is indicated in the `highway` tag, which takes values such as `motorway, residential, living_street, etc.`
+ - The road's texture. For example `asphalt, dirt, etc.`
+ - If the road is accessible from the general public `private parking lots, roads tha are accessible only in certain hours, etc.`
+ - Max-speed road signs
