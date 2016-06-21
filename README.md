@@ -4,7 +4,7 @@ The purpose of this Python code is to parse the `.osm` data, which are downloada
 
 ## Input
 
-An .osm file, for example, `greece-latest.osm`, or `europe-latest.osm`.
+An .osm file, for example, `greece-latest.osm`, or `europe-latest.osm`. And, a distance in meters, for example `250` which will be the highest distance that we want to have to any edge in our graph. If an edge is more than `250` when we split it and add more nodes, so that it remains short. This is optional. The reasoning behind why we do this is can be found [here](https://github.com/outerpixels/routing-engine-backend/edit/master/README.md)
 
 ## Output
 
