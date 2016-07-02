@@ -52,5 +52,5 @@ When parsing the `.osm` data, we also want to associate the `osm_node_ids` to ou
 
  - Road's type. This is indicated in the `highway` tag, which takes values such as `motorway, residential, living_street, etc.`
  - The road's texture. For example, `asphalt, dirt, etc.`
- - If the road is accessible from the general public `private parking lots, roads tha are accessible only in certain hours, etc.`
+ - If the road is accessible from the general public `private parking lots, roads that are accessible only in certain hours, etc.`
  - Max-speed road signs
