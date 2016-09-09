@@ -48,9 +48,9 @@ The process I followed when implementing this graph-extractor is very similar to
 
 When parsing the `.osm` data, we also want to associate the `osm_node_ids` to our own, smaller ids, named `my_ids`, which take values **from 0 to N**. The reason behind that is that we need those ids as indexes in our c++ application, which solves the shortest path problem. To do that, I am using a temporary **Sqlite** database (which is built-in python) to help me with the data parsing. Otherwise, an in-memory approach would require way too much memory. The **Sqlite** database file which contains the `osm_node_id, my_id, latitude, longitude` takes up 80GBs of space for the Europe car graph.
 
-## Important things we need to consider when parsing the .osm data
+## Important things we consider when parsing the .osm data
 
- - Road's type. This is indicated in the `highway` tag, which takes values such as `motorway, residential, living_street, etc.`
- - The road's texture. For example, `asphalt, dirt, etc.`
- - If the road is accessible from the general public `private parking lots, roads that are accessible only in certain hours, etc.`
+ - Road's type. This is indicated in the `highway` tag, which takes values such as `motorway`, `residential`, `living_street`, etc.
+ - Road's texture. For example, `asphalt, dirt, etc.`
+ - Road's accessibility for the general public, private parking lots, roads that are accessible only in certain hours, etc.
  - Max-speed road signs
