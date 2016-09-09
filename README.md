@@ -51,6 +51,6 @@ When parsing the `.osm` data, we also want to associate the `osm_node_ids` to ou
 ## Important things we consider when parsing the .osm data
 
  - Road's type. This is indicated in the `highway` tag, which takes values such as `motorway`, `residential`, `living_street`, etc.
- - Road's texture. For example, `asphalt, dirt, etc.`
- - Road's accessibility for the general public, private parking lots, roads that are accessible only in certain hours, etc.
+ - Road's texture. For example, `asphalt`, `dirt`, etc.
+ - Road's accessibility tags. For example, accessible by the general public, private parking lots, roads that are accessible only in certain hours, etc.
  - Max-speed road signs
